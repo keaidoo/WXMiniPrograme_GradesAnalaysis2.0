@@ -4,7 +4,7 @@ Page({
   onLoad: function() {
     var that = this
     wx.request({
-      url: 'http://47.100.229.168:8080/stu/teacher/courses/1',
+      url: getApp().globalData.baseUrl+'/stu/teacher/courses/1',
       headers: {
         'Content-Type': 'application/json'
       },

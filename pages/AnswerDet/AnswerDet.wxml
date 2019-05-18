@@ -1,7 +1,7 @@
 <!--pages/AnswerDet/AnswerDet.wxml-->
 
   <!-- 试卷名称 -->
-  <view class='page_name'>试卷名称：C语言{{course_name}}</view>
+  <view class='page_name'>试卷名称：{{paper_name}}</view>
 
   <!--答题正确率60%以下的题目-->
   <!-- <view class='lower60'>
@@ -12,16 +12,16 @@
  <!--答题正确率60%以下的题目-->
   <view class='contentBottom correct_rate'>
   <view class='BottomFirst'>
-    <text id='0' data-id='0'>答题正确率60%以下的题目</text>
+    <text id='0' data-id='0'>答题正确率70%以下的题目</text>
   </view>
   <swiper class="tab-right" style='background:{{bgColor}};' vertical="true" interval="2000" display-multiple-items='4'>
     <view class="right-item">
-      <block wx:for-index="idx" wx:for='{{a1}}'>
+      <block wx:for-index="idx" wx:for='{{questions}}' wx:key="item">
         <swiper-item>
           <view class='content-item'>
             <image src='{{item.avatarUrl}}' class='avater'></image>
-            <text class='name'>题号：{{item.Question_num}}</text>
-            <text class='wawa'>正确率：{{item.corret_rate}}</text>
+            <text class='name'>题号：{{item.question}}</text>
+            <text class='wawa'>正确率：{{item.ratio}}</text>
           </view>
         </swiper-item>
       </block>
@@ -36,13 +36,13 @@
   </view>
   <swiper class="tab-right" style='background:{{bgColor}};' vertical="true" interval="2000" display-multiple-items='4'>
     <view class="right-item">
-      <block wx:for-index="idx" wx:for='{{aa}}'>
+      <block wx:for-index="idx" wx:for='{{grades}}' wx:key="item">
         <swiper-item>
           <view class='content-item'>
             <image src='{{item.avatarUrl}}' class='avater'></image>
-            <text class='name'>{{item.nickName}}</text>
-            <text class='num'>{{item.studentnum}}</text>
-            <text class='wawa'>成绩：{{item.reward}}分</text>
+            <text class='name'>{{item.student.name}}</text>
+            <text class='num'>{{item.student.studentNumber}}</text>
+            <text class='wawa'>成绩：{{item.score}}分</text>
           </view>
         </swiper-item>
       </block>

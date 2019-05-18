@@ -6,81 +6,6 @@ Page({
    */
 
   data: {
-   a1:[
-     {
-       Question_num: "1",
-       corret_rate: "20%",
-     },
-     {
-       Question_num: "2",
-       corret_rate: "26%",
-     },
-     {
-       Question_num: "3",
-       corret_rate: "40%",
-     },
-     {
-       Question_num: "4",
-       corret_rate: "20%",
-     },
-     {
-       Question_num: "7",
-       corret_rate: "56%",
-     },
-     {
-       Question_num: "8",
-       corret_rate: "50%",
-     },
-     {
-       Question_num: "1",
-       corret_rate: "20%",
-     },
-     {
-       Question_num: "2",
-       corret_rate: "26%",
-     },
-   ],
-   
-    aa: [
-      {
-        nickName: "小红",
-        studentnum:"20151392",
-        reward: "65"
-      },
-      {
-        nickName: "小兰",
-        studentnum: "20151331",
-        reward: "93"
-      },
-      {
-        nickName: "小白",
-        studentnum: "20151352",
-        reward: "54"
-      },
-      {
-        nickName: "小云",
-        studentnum: "20151347",
-        reward: "77"
-      },
-      {
-        nickName: "小M",
-        studentnum: "20151347",
-        reward: "67"
-      },
-      {
-        nickName: "小云",
-        studentnum: "20151347",
-        reward: "77"
-      },
-      {
-        nickName: "小M",
-        studentnum: "20151347",
-        reward: "67"
-      },
-    ],
-
-
-
   },
 
   /**
@@ -90,10 +15,22 @@ Page({
       //获取数据
       var that=this
       wx.request({
-        url: 'http://47.100.229.168:8080/stu/teacher/courses/1',
+        url: getApp().globalData.baseUrl+'/stu/grade/correctAnalysis/'+options.paper_id,
         success:function(res){
-          that.setData({
-            list: res.data,
+          console.log(res.data)
+          // that.setData({
+          //   questions: res.data,
+          // })
+          wx.request({
+            url: getApp().globalData.baseUrl+'/stu/grade/list/' + options.paper_id,
+            success: function (res1) {
+              console.log(res1.data)
+              that.setData({
+                paper_name:options.paper_name,
+                questions: res.data,
+                grades: res1.data
+              })
+            }
           })
         }
       })

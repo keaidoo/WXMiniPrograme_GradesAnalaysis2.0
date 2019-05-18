@@ -1,0 +1,21 @@
+<!--pages/AdminAddCourse/AdminAddCourse.wxml-->
+<view class="itemView1">
+请输入课程信息
+</view>
+
+  <view class='c_name'>
+    <view class='course_name'>请选择课程名称</view>
+    <picker mode='selector' range='{{selectorItems}}' bindchange='selectorChange'>
+      <view>当前课程: {{selector}}</view>
+    </picker>
+  </view>
+<!-- 上课时间&地点 -->
+<view class="itemView">上课时间：
+ <input class="input" name="qNum" placeholder="请输入上课时间" bindinput="qNumInput" />
+</view>
+<view class="itemView">上课地点：
+ <input class="input" name="qNum" placeholder="请输入上课地点" bindinput="qNumInput" />
+</view>
+<view class="viewName">
+  <button class="changeBtn" bindtap="changeClick">添加课程</button>
+</view>

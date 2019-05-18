@@ -1,14 +1,17 @@
 {
   "pages": [
+    "pages/ReplaceQuestion/ReplaceQuestion",
+    "pages/ExamPage/ExamPage",
+    "pages/AdminIndex/AdminIndex",
+    "pages/Analysis/Analysis",
+    "pages/AdminAddCourse/AdminAddCourse",
+    "pages/AdminAddTeacher/AdminAddTeacher",
+    "pages/AdminExamPage/AdminExamPage",
+    "pages/login/login",
     "pages/index/index",
     "pages/datatest/datatest",
-    "pages/Analysis/Analysis",
     "pages/AnswerDet/AnswerDet",
-    "pages/login/login",
     "pages/my/my",
-    "pages/ExamPage/ExamPage",
-    "pages/ReplaceQuestion/ReplaceQuestion",
-    
     "pages/CourseDet/CourseDet"
   ],
   "window": {

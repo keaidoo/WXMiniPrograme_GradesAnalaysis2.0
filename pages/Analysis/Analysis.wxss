@@ -14,14 +14,17 @@ page {
   background-color: white;
   padding: 15rpx;
   text-align: center;
-  font-size: 40rpx;
-  color: black;
+  font-size: 35rpx;
+  color: blue;
   border-top: 1rpx solid #0095ff5e;
   border-bottom: 1rpx solid #0095ff5e;
   border-radius: 15rpx;
   line-height: 50rpx;
+  
 }
-
+.course_name{
+   color: red;
+}
 /* 查看试卷 */
 
 .watch_test {
@@ -79,4 +82,39 @@ image{
   text-align: left;
   margin-right: 10rpx;
   
+}
+.unpoint{
+  margin-top: 5rpx ;
+  margin-left: 55rpx ;
+  background-color: white;
+  padding: 8rpx;
+  font-size: 31rpx;
+  color: rgb(59, 54, 54);
+  line-height: 30rpx;
+}
+.flexq{
+  display: flex;
+}
+.percent{
+  color: red;
+  font-size: 32rpx;
+ padding-left: 10rpx;
+}
+
+.ana{
+  font-size: 30rpx;
+ padding-left: 10rpx;
+ color: green;
+}
+.a{
+  
+ color: red;
+}
+.b{
+  
+ color: orange;
+}
+.c{
+  
+ color: gray;
 }

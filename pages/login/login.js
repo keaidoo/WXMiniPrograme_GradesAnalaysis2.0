@@ -1,14 +1,14 @@
 // pages/login/login.js
 Page({
   data: {
-    phone: '',
+    username: '',
     password: ''
   },
 
   // 获取输入账号
   phoneInput: function(e) {
     this.setData({
-      phone: e.detail.value
+      username: e.detail.value
     })
   },
 
@@ -21,7 +21,7 @@ Page({
 
   // 登录
   login: function() {
-    if (this.data.phone.length == 0 || this.data.password.length == 0) {
+    if (this.data.username.length == 0 || this.data.password.length == 0) {
       wx.showToast({
         title: '用户名和密码不能为空',
         icon: 'loading',
@@ -29,15 +29,42 @@ Page({
       })
     } else {
 
-      // 这里修改成跳转的页面
-      wx.showToast({
-        title: '登录成功',
-        icon: 'success',
-        duration: 2000,
-        success:function(){
-          wx.switchTab({ 
-         url: '../index/index'
-          })
+      // // 这里修改成跳转的页面
+      // wx.showToast({
+      //   title: '登录成功',
+      //   icon: 'success',
+      //   duration: 2000,
+      //   success:function(){
+      //     wx.switchTab({ 
+      //    url: '../index/index'
+      //     })
+      //   }
+      // })
+      wx.request({
+        url: getApp().globalData.baseUrl+'/stu/login',
+        method:'POST',
+        data:{
+          username:this.data.username,
+          password:this.data.password
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data)
+          if(res.data==="failed"){
+            wx.showToast({
+              title: '用户名或密码错误',
+              icon: 'none',
+              duration: 2000
+            })
+          }else{
+            var appInstance = getApp()
+            appInstance.globalData.userInfo = res.data
+            wx.switchTab({ 
+              url: '../index/index'
+            })
+          }
         }
       })
     }

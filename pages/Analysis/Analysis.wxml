@@ -1,42 +1,68 @@
 <!--pages/Analysis/Analysis.wxml-->
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+      return value.toFixed(2) //此处2为保留两位小数
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
 <view class='course-wrap'>
   <!-- 课程名称 -->
   <view class='c_name'>
-    <view class='course_name'>课程名称：C语言{{course_name}}</view>
+    <view class='course_name'>请选择试卷</view>
+    <picker mode='selector' range='{{selectorItems}}' bindchange='selectorChange'>
+      <view>当前试卷: {{selector}}</view>
+    </picker>
   </view>
   <view class='analysis'>
+    <!--成绩分析-->
+    <view class='analysis_grade'>
+      <view class='analysis_sum'>
+        <image src='../../image/pink.jpg'></image>学生成绩分析</view>
+      <view class='average analy_det flexq'>
+        <image src='../../image/star2.png'></image>试卷平均分:
+        <view class='ana'> {{gradeAnalysis.avgScore}}分</view>
+      </view>
+
+      <view class='level_A analy_det flexq'>
+        <image src='../../image/star4.png'></image>优秀:
+        <view class='a ana'> {{gradeAnalysis.good}}人</view>
+      </view>
+      <view class='level_B analy_det flexq'>
+        <image src='../../image/star5.png'></image>良好:
+        <view class='b ana'> {{gradeAnalysis.pass}}人</view>
+      </view>
+      <view class='level_C analy_det flexq'>
+        <image src='../../image/star3.png'></image>不及格:
+        <view class='c ana'>{{gradeAnalysis.noPass}}人</view>
+      </view>
+      <navigator url='../AnswerDet/AnswerDet?paper_id={{paper_id}}&paper_name={{paper_name}}' open-type='navigate' class='Answer_Det'>答题详情</navigator>
+    </view>
     <!--试卷分析-->
     <view class='analysis_exam'>
       <view class='analysis_sum'>
         <image src='../../image/pink.jpg'></image>试卷分析结果</view>
       <view class='point analy_det'>
         <image src='../../image/point3.png'></image>未覆盖的知识点
-        <view>1.1函数{{point}}</view>
+        <view wx:for="{{analysis.unCheckedPoints}}" wx:key="item">
+          <view class='unpoint'>{{item.chapterId}}.{{item.pointNumber}} {{item.name}}</view>
+        </view>
       </view>
-      <view class='point analy_det'>
+      <view class='point analy_det flexq'>
         <image src='../../image/point2.png'></image>课程知识点覆盖百分比
-        <view>1.1函数{{point}}</view>
+        <view class='percent'>{{analysis.percentage}}%</view>
       </view>
       <view class='point analy_det'>
         <image src='../../image/point4.png'></image>章节涉及题目数量
-        <view>1.1函数{{point}}</view>
+        <view wx:for="{{analysis.chapterCover}}" wx:key="item">
+          <view class='unpoint'>第{{item.chapter.chapterNumber}}章 {{item.chapter.chapterName}} [ 共{{item.num}}题 ] </view>
+        </view>
       </view>
-      <navigator url='../ExamPage/ExamPage' open-type='navigate' class='watch_test'>查看试卷</navigator>
+      <navigator url='../ExamPage/ExamPage?paper_id={{paper_id}}&paper_name={{paper_name}}' open-type='navigate' class='watch_test'>查看试卷</navigator>
     </view>
-    <!--成绩分析-->
-    <view class='analysis_grade'>
-      <view class='analysis_sum'>
-        <image src='../../image/pink.jpg'></image>学生成绩分析</view>
-      <view class='average analy_det'>
-        <image src='../../image/star2.png'></image>试卷平均分</view>
-      <view class='level_A analy_det'>
-        <image src='../../image/star4.png'></image>优秀</view>
-      <view class='level_B analy_det'>
-        <image src='../../image/star5.png'></image>良好</view>
-      <view class='level_C analy_det'>
-        <image src='../../image/star3.png'></image>不及格</view>
 
-      <navigator url='../AnswerDet/AnswerDet' open-type='navigate' class='Answer_Det'>答题详情</navigator>
-    </view>
   </view>
 </view>

@@ -48,5 +48,5 @@ swiper-item image {
   line-height: 50rpx;
 }
 #teacher_intro{
-  height: 200rpx;
+  height: 360rpx;
 }

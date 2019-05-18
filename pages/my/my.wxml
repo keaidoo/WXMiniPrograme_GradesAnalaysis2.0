@@ -2,7 +2,7 @@
 <!--轮播图-->
 <swiper autoplay='true' indicator-dots='true' indicator-color='white' indicator-active-color='blue' circular='true' interval='2000'>
   <swiper-item>
-    <image src='../../image/3.jpg' mode="widthFix"></image>
+    <image src='../../image/3.png' mode="widthFix"></image>
   </swiper-item>
   <swiper-item>
     <image src='../../image/4.jpg' mode="widthFix"></image>
@@ -13,10 +13,10 @@
 </swiper>
 <view class='information'>
 <view class='information-title'>个人信息</view>
-<view class='information-item' id='teacher_name'>姓名:{{teacher_name}}</view>
-<view class='information-item' id='teacher_gender'>性别:{{teacher_gender}}</view>
-<view class='information-item'id='teacher_position'>职位:{{teacher_position}}</view>
-<view class='information-item' id='teacher_intro'>个人介绍:{{teacher_intro}}</view>
+<view class='information-item' id='teacher_name'>姓名:{{user.name}}</view>
+<view class='information-item' id='teacher_gender'>性别:{{user.gender}}</view>
+<view class='information-item'id='teacher_position'>职位:{{user.position}}</view>
+<view class='information-item' id='teacher_intro'>个人介绍:{{user.description}}</view>
 </view>
 <!--登陆面板-->
 <!-- <view id='myLogin'>

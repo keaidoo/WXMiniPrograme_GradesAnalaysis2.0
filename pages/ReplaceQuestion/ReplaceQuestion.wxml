@@ -2,9 +2,9 @@
 <!-- 课程名 -->
 <view class='title'>
   <view class='course_name'>
-    课程名：C语言{{item.course_name}}
+    课程名：{{courseName}}
   </view>
-  <view class='page_name'>试卷名：C语言考试试卷{{course_name}}</view>
+  <view class='page_name'>试卷名：{{paperName}}</view>
 </view>
 <!-- 试卷题号 -->
 
@@ -17,12 +17,21 @@
   <textarea class="input" name="qContent" placeholder="请输入题目内容" bindinput="qContentInput"></textarea>
 </view>
 
-<view class="itemView">题目涉及的知识点：
+<!-- <view class="itemView">题目涉及的知识点（多个知识点以空格隔开）：
   <textarea class="input" name="qPoint" placeholder="请输入题目涉及的知识点" bindinput="qPointInput"></textarea>
 </view>
 <view class="viewName">
   <button class="changeBtn" bindtap="changeClick">替换</button>
+</view> -->
+<view class="itemView">题目涉及的知识点（多个知识点以空格隔开）：
+      <view class='title'>请选择知识点</view>
+      <checkbox-group bindchange='checkboxChange'>
+        <view class='test' wx:for='{{checkboxItems}}' wx:key='item{{index}}'>
+          <checkbox value='{{item.value}}' checked='{{item.checked}}' />{{item.name}}
+        </view>
+      </checkbox-group>
+  </view>
+  <!-- 替换 -->
+<view class="viewName">
+  <button class="changeBtn" bindtap="changeClick">替换</button>
 </view>
-
-
-<!-- 搜索 -->

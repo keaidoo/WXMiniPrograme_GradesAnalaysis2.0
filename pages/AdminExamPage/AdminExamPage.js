@@ -1,4 +1,4 @@
-// pages/CourseDet/CourseDet.js
+// pages/AdminExamPage/AdminExamPage.js
 Page({
 
   /**
@@ -12,25 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.course_id)
-    //获取数据
- 
-    var that = this
-    wx.request({
-      url: getApp().globalData.baseUrl+'/stu/course/' + options.course_id+'/chapters',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          chapters: res.data,
-          course_name: options.course_name,
-          course_description: options.course_description,
-          course_id: options.course_id,
-        })
-      }
-    })
+
   },
 
   /**
@@ -44,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

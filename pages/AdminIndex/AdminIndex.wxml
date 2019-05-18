@@ -1,0 +1,30 @@
+<!--pages/AdminIndex/AdminIndex.wxml-->
+
+<!-- 当前时间 -->
+<!-- <view class='timenow'>当前时间:{{timenow}}</view> -->
+<view class='table'>教师管理
+  <view class='timenow'>当前时间:{{timenow}}</view>
+</view>
+
+<!-- 轮播图 -->
+<swiper autoplay='true' indicator-dots='true' indicator-color='white' indicator-active-color='blue' circular='true' interval='2000'>
+
+  <swiper-item>
+    <image src='../../image/3.png' mode="widthFix"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='../../image/4.jpg' mode="widthFix"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='../../image/5.jpg' mode="widthFix"></image>
+  </swiper-item>
+</swiper>
+
+
+<!-- 教师名 -->
+<view  class='flex' >
+  <navigator class='teacher_name' open-type='switchTab' url='../index/index'>教师姓名：</navigator>
+  <navigator class='teacher_deleteadd' open-type='navigate' url='../AdminAddCourse/AdminAddCourse'>添加课程</navigator>
+  <button class='teacher_deleteadd'>删除教师</button>
+</view>
+ <navigator class='addTeacher' open-type='navigate' url='../AdminAddTeacher/AdminAddTeacher'>添加教师</navigator>

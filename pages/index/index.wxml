@@ -9,7 +9,7 @@
 <swiper autoplay='true' indicator-dots='true' indicator-color='white' indicator-active-color='blue' circular='true' interval='2000'>
 
   <swiper-item>
-    <image src='../../image/3.jpg' mode="widthFix"></image>
+    <image src='../../image/3.png' mode="widthFix"></image>
   </swiper-item>
   <swiper-item>
     <image src='../../image/4.jpg' mode="widthFix"></image>
@@ -23,9 +23,9 @@
 
 <!-- 本学期课表 -->
 <!-- <view class='table'>本学期课表</view> -->
-<view class='class_table' wx:for="{{list}}" wx:key="list">
+<view class='class_table' wx:for="{{list}}" wx:key="item">
   <view class='course_name'>课程名称：{{item[0].course.courseName}}</view>
-  <view wx:for="{{item}}" wx:for-item="sub">
+  <view wx:for="{{item}}" wx:for-item="sub" wx:key="sub">
     <!-- <view wx:if="{{{{sub.weekdayNum}} == '2'}}">2</view> -->
     <view class='course_det' wx:if="{{sub.weekdayNum== '1'}}">上课时间：星期一（{{sub.time}}）</view>
     <view class='course_det' wx:elif="{{sub.weekdayNum== '2'}}">上课时间：星期二（{{sub.time}}）</view>
@@ -37,5 +37,5 @@
     <view class='course_det' class='course_det'>上课地点：{{sub.place}}</view>
   </view>
  
-  <navigator class='course_detail' url='../CourseDet/CourseDet?id={{course.id}}' open-type='navigate' bindtap='Jump' data-id='{{course.id}}'>课程详情</navigator>
+  <navigator class='course_detail' url='../CourseDet/CourseDet?course_id={{item[0].course.id}}&course_name={{item[0].course.courseName}}&course_description={{item[0].course.courseDescription}}' open-type='navigate'>课程详情</navigator>
 </view>

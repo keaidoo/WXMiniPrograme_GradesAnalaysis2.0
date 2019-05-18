@@ -1,10 +1,10 @@
 <!--pages/ExamPage/ExamPage.wxml-->
 <view class='title'>
   <view class='course_name'>
-    课程名：C语言{{item.course_name}}
+    课程名：{{paperInfo.course.courseName}}
   </view>
-  <view class='page_name'>试卷名：C语言考试试卷{{course_name}}</view>
-  <navigator class='replace' url='../ReplaceQuestion/ReplaceQuestion' open-type='navigate'>替换试题</navigator>
+  <view class='page_name'>试卷名：{{paperInfo.paper.paperName}}</view>
+  <navigator class='replace' url='../ReplaceQuestion/ReplaceQuestion?paper_id={{paperInfo.paper.id}}&course_name={{paperInfo.course.courseName}}&paper_name={{paperInfo.paper.paperName}}' open-type='navigate'>替换试题</navigator>
 </view>
 
 <!--试卷页面详情-->
@@ -14,11 +14,11 @@
   </view>
   <swiper class="tab-right" style='background:{{bgColor}};' vertical="true" interval="2000" display-multiple-items='3'>
     <view class="right-item">
-      <block wx:for-index="idx" wx:for='{{aa}}'>
+      <block wx:for-index="idx" wx:for='{{paperInfo.questions}}' wx:key="item">
         <swiper-item>
           <view class='content-item'>
-            <view class='name'>{{item.question}}</view>
-            <view class='name'>【考查知识点：{{item.point}}】({{item.score}}分)</view>
+            <view class='name'>{{item.number}}.{{item.description}}</view>
+            <view class='name'>【考查知识点：{{item.points}}】({{item.score}}分)</view>
           </view>
           
         </swiper-item>

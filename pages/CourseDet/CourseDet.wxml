@@ -1,42 +1,47 @@
 <!--pages/CourseDet/CourseDet.wxml-->
-<view class='course' wx:for="{{list}}" wx:key="list">
-  <view class='course_name'>
-    <image src='../../image/course1.png'></image>课程名称：{{item[0].course.courseName}}
-  </view>
+<view class='course_name'>
+  <image src='../../image/course1.png'></image>课程名称：{{course_name}}
+</view>
+<view class='course_det'>
+  <!-- <view wx:for="{{item}}" wx:for-item="sub"> -->
+    <!-- <view wx:if="{{{{sub.weekdayNum}} == '2'}}">2</view> -->
+    <!-- <view class='course_det' wx:if="{{sub.weekdayNum== '1'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期一（{{sub.time}}）</view>
+    <view class='course_det' wx:elif="{{sub.weekdayNum== '2'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期二（{{sub.time}}）</view>
+    <view class='course_det' wx:elif="{{sub.weekdayNum== '3'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期三（{{sub.time}}）</view>
+    <view class='course_det' wx:elif="{{sub.weekdayNum== '4'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期四（{{sub.time}}）</view>
+    <view class='course_det' wx:elif="{{sub.weekdayNum== '5'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期五（{{sub.time}}）</view>
+    <view class='course_det' wx:elif="{{sub.weekdayNum== '6'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期六（{{sub.time}}）</view>
+    <view class='course_det' wx:else="{{sub.weekdayNum== '7'}}">
+      <image src='../../image/course2.png'></image>上课时间：星期日（{{sub.time}}）</view>
+    <view class='course_det'>
+      <image src='../../image/course3.png'></image>上课地点：{{sub.place}}
+    </view> -->
+  <!-- </view> -->
   <view class='course_det'>
-    <view wx:for="{{item}}" wx:for-item="sub">
-      <!-- <view wx:if="{{{{sub.weekdayNum}} == '2'}}">2</view> -->
-      <!-- <view class='course_det' wx:if="{{sub.weekdayNum== '1'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期一（{{sub.time}}）</view>
-      <view class='course_det' wx:elif="{{sub.weekdayNum== '2'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期二（{{sub.time}}）</view>
-      <view class='course_det' wx:elif="{{sub.weekdayNum== '3'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期三（{{sub.time}}）</view>
-      <view class='course_det' wx:elif="{{sub.weekdayNum== '4'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期四（{{sub.time}}）</view>
-      <view class='course_det' wx:elif="{{sub.weekdayNum== '5'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期五（{{sub.time}}）</view>
-      <view class='course_det' wx:elif="{{sub.weekdayNum== '6'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期六（{{sub.time}}）</view>
-      <view class='course_det' wx:else="{{sub.weekdayNum== '7'}}">
-        <image src='../../image/course2.png'></image>上课时间：星期日（{{sub.time}}）</view>
-      <view class='course_det'>
-        <image src='../../image/course3.png'></image>上课地点：{{sub.place}}
-      </view> -->
-    </view>
-    <view class='course_det'>
-      <image src='../../image/course4.png'></image>
-      课程介绍：
-      <view>{{item[0].course.courseDescription}}</view>
-    </view>
-
-    <view class='course_det'>
-      <image src='../../image/course5.png'></image>
-      课程知识点:
-      <view>第一章：章节名称知识点{{item[0].course_point}}</view>
-    </view>
-
+    <image src='../../image/course4.png'></image>
+    课程介绍：
+    <view class='coursedet'>{{course_description}}</view>
   </view>
 
+  <view class='course_det'>
+    <image src='../../image/course5.png'></image>
+    课程知识点:
+    <view wx:for="{{chapters}}">
+      <view class='point' wx:if="{{item.isTough==true}}">第{{item.chapterNumber}}章：{{item.chapterName}}<image src='../../image/star4.png'></image>
+      </view>
+      <view class='point' wx:if="{{item.isTough==false}}">第{{item.chapterNumber}}章：{{item.chapterName}}
+      </view>
+      <view class='pointdet'  wx:for="{{item.knowledgePoints}}" wx:for-item="knowledgePoint">
+        <view>{{item.chapterNumber}}.{{knowledgePoint.pointNumber}} {{knowledgePoint.name}}
+        </view>
+      </view>
+    </view>
+  </view>
 
 </view>

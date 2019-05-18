@@ -12,7 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var appInstance = getApp()
+    if (appInstance.globalData.userInfo!=null){
+      this.setData({
+        user: appInstance.globalData.userInfo
+      })
+    }
   },
 
   /**

@@ -34,3 +34,29 @@ image{
   text-align: left;
   margin-right: 10rpx;
 }
+.coursedet{
+   margin-top: 8rpx ;
+  background-color: white;
+  padding: 10rpx;
+  font-size: 33rpx;
+  color: black;
+  line-height: 50rpx;
+}
+.point{
+    margin-top: 15rpx ;
+  background-color: white;
+  padding: 10rpx;
+  font-size: 33rpx;
+  color: black;
+  line-height: 30rpx;
+  border-top: 1rpx dashed lightskyblue;
+}
+.pointdet{
+  margin-top: 5rpx ;
+  margin-left: 35rpx ;
+  background-color: white;
+  padding: 8rpx;
+  font-size: 31rpx;
+  color: rgb(59, 54, 54);
+  line-height: 30rpx;
+}

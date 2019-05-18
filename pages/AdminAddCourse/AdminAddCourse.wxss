@@ -1,0 +1,63 @@
+/* pages/AdminAddCourse/AdminAddCourse.wxss */
+page {
+  background-color: rgba(239, 239, 242, 0.733);
+}
+/* 课程名称 */
+
+.c_name {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+   margin: 20rpx;
+  background-color: white;
+  padding: 15rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color: blue;
+  border-top: 1rpx solid #0095ff5e;
+  border-bottom: 1rpx solid #0095ff5e;
+  border-radius: 15rpx;
+  line-height: 50rpx;
+
+}
+.course_name{
+   color: black;
+}
+/* 名称 */
+
+.itemView1 {
+  padding: 10rpx;
+  background-color: white;
+  margin: 20rpx;
+  border-top: 1rpx solid #0095ff5e;
+  border-bottom: 1rpx solid #0095ff5e;
+  border-radius: 15rpx;
+  text-align: center;
+  font-size: 40rpx;
+  line-height: 40rpx;
+}
+
+.itemView {
+  display: flex;
+  padding: 10rpx;
+  background-color: white;
+  margin: 20rpx;
+  border-top: 1rpx solid #0095ff5e;
+  border-bottom: 1rpx solid #0095ff5e;
+  border-radius: 15rpx;
+  text-align: left;
+  font-size: 33rpx;
+  line-height: 40rpx;
+}
+
+.input {
+  border: 1px solid white;
+  width: 70%;
+  margin-left: 1.5%;
+}
+
+.viewName {
+  margin: 20rpx;
+  background-color: white;
+  
+}
+

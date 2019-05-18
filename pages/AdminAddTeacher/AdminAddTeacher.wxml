@@ -1,0 +1,26 @@
+<!--pages/AdminAddTeacher/AdminAddTeacher.wxml-->
+
+<view class="itemView1">
+请输入教师信息
+</view>
+<view class="itemView">教师账号：<input class="input" name="qNum" placeholder="请输入教师账号" bindinput="qNumInput" />
+</view>
+<view class="itemView">教师登录密码：
+ <input password name="qNum" placeholder="请输入登录密码" bindinput="qNumInput" />
+</view>
+<view class="itemView">教师性别：
+ <input class="input" name="qNum" placeholder="请输入性别(男/女)" bindinput="qNumInput" />
+</view>
+<view class="itemView">教师职位：
+ <input class="input" name="qNum" placeholder="请输入教师职位" bindinput="qNumInput" />
+</view>
+<view class="itemView">教师简介：
+  <textarea class="input" name="qContent" placeholder="请输入教师简介" bindinput="qContentInput"></textarea>
+</view>
+
+<view class="viewName">
+  <button class="changeBtn" bindtap="changeClick">添加教师</button>
+</view>
+
+
+
